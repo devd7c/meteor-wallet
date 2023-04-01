@@ -1,0 +1,78 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "allowJs": true,
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "/*": [
+        "./*"
+      ],
+      "meteor/mongo": [
+        "/home/ubuntu/.meteor/packages/mongo/1.16.5/web.browser/local_collection_driver.js",
+        "/home/ubuntu/.meteor/packages/mongo/1.16.5/web.browser/collection.js",
+        "/home/ubuntu/.meteor/packages/mongo/1.16.5/web.browser/connection_options.js",
+        "/home/ubuntu/.meteor/packages/mongo/1.16.5/web.browser/doc_fetcher.js",
+        "/home/ubuntu/.meteor/packages/mongo/1.16.5/web.browser/mongo_driver.js",
+        "/home/ubuntu/.meteor/packages/mongo/1.16.5/web.browser/mongo_utils.js",
+        "/home/ubuntu/.meteor/packages/mongo/1.16.5/web.browser/observe_multiplex.js",
+        "/home/ubuntu/.meteor/packages/mongo/1.16.5/web.browser/oplog_observe_driver.js",
+        "/home/ubuntu/.meteor/packages/mongo/1.16.5/web.browser/oplog_tailing.js",
+        "/home/ubuntu/.meteor/packages/mongo/1.16.5/web.browser/oplog_v2_converter.js",
+        "/home/ubuntu/.meteor/packages/mongo/1.16.5/web.browser/polling_observe_driver.js",
+        "/home/ubuntu/.meteor/packages/mongo/1.16.5/web.browser/remote_collection_driver.js"
+      ],
+      "meteor/reactive-var": [
+        "/home/ubuntu/.meteor/packages/reactive-var/1.0.12/web.browser/reactive-var.js"
+      ],
+      "meteor/es5-shim": [
+        "/home/ubuntu/.meteor/packages/es5-shim/4.8.0/web.browser/client.js",
+        "/home/ubuntu/.meteor/packages/es5-shim/4.8.0/web.browser/console.js",
+        "/home/ubuntu/.meteor/packages/es5-shim/4.8.0/web.browser/cordova.js",
+        "/home/ubuntu/.meteor/packages/es5-shim/4.8.0/web.browser/export_globals.js",
+        "/home/ubuntu/.meteor/packages/es5-shim/4.8.0/web.browser/import_globals.js"
+      ],
+      "meteor/ecmascript": [
+        "/home/ubuntu/.meteor/packages/ecmascript/0.16.6/web.browser/ecmascript.js"
+      ],
+      "meteor/shell-server": [
+        "/home/ubuntu/.meteor/packages/shell-server/0.5.0/web.browser/main.js",
+        "/home/ubuntu/.meteor/packages/shell-server/0.5.0/web.browser/shell-server.js"
+      ],
+      "meteor/hot-module-replacement": [
+        "/home/ubuntu/.meteor/packages/hot-module-replacement/0.5.2/web.browser/hot-api.js",
+        "/home/ubuntu/.meteor/packages/hot-module-replacement/0.5.2/web.browser/client.js",
+        "/home/ubuntu/.meteor/packages/hot-module-replacement/0.5.2/web.browser/server.js"
+      ],
+      "meteor/react-meteor-data": [
+        "/home/ubuntu/.meteor/packages/react-meteor-data/2.4.0/web.browser/index.js"
+      ],
+      "meteor/aldeed:collection2": [
+        "/home/ubuntu/.meteor/packages/aldeed_collection2/3.5.0/web.browser/collection2.js",
+        "/home/ubuntu/.meteor/packages/aldeed_collection2/3.5.0/web.browser/lib.js"
+      ],
+      "meteor/matb33:collection-hooks": [
+        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.1.2/web.browser/client.js",
+        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.1.2/web.browser/advices.js",
+        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.1.2/web.browser/collection-hooks.js",
+        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.1.2/web.browser/find.js",
+        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.1.2/web.browser/findone.js",
+        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.1.2/web.browser/insert.js",
+        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.1.2/web.browser/remove.js",
+        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.1.2/web.browser/server.js",
+        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.1.2/web.browser/update.js",
+        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.1.2/web.browser/upsert.js",
+        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.1.2/web.browser/users-compat.js"
+      ]
+    }
+  },
+  "typeAcquisition": {
+    "include": [
+      "meteor"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    ".meteor"
+  ]
+}

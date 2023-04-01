@@ -1,7 +1,7 @@
 import React from "react";
 import { Meteor } from "meteor/meteor";
-import {ErrorAlert} from "./components/ErrorAlert";
-import {SuccessAlert} from "./components/SuccessAlert";
+import { ErrorAlert } from "./components/ErrorAlert";
+import { SuccessAlert } from "./components/SuccessAlert";
 
 export const ContactForm = () => {
   const [name, setName] = React.useState(""); // Formik
@@ -16,36 +16,43 @@ export const ContactForm = () => {
     setTimeout(() => {
       setError("");
     }, 5000);
-  }
+  };
 
   const showSuccess = ({ message }) => {
     setSuccess(message);
     setTimeout(() => {
       setSuccess("");
     }, 5000);
-  }
+  };
 
   const saveContact = () => {
-    Meteor.call('contacts.insert', { name, email, imageUrl, walletId }, (errorResponse) => {
-      if(errorResponse) {
-        showError({ message: errorResponse.error });
-      } else {
-        setName("");
-        setEmail("");
-        setImageUrl("");
-        setWalletId("");
-        showSuccess({ message: "Contact saved." });
+    Meteor.call(
+      "contacts.insert",
+      { name, email, imageUrl, walletId },
+      (errorResponse) => {
+        if (errorResponse) {
+          showError({ message: errorResponse.error });
+        } else {
+          setName("");
+          setEmail("");
+          setImageUrl("");
+          setWalletId("");
+          showSuccess({ message: "Contact saved." });
+        }
       }
-    });
-  }
+    );
+  };
 
   return (
     <form className="mt-6">
       {error && <ErrorAlert message={error} />}
-      {success && <SuccessAlert message={success} /> }
+      {success && <SuccessAlert message={success} />}
       <div className="grid grid-cols-6 gap-6">
         <div className="col-span-6 sm:col-span-6 lg:col-span-2">
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-gray-700"
+          >
             Name
           </label>
           <input
@@ -58,7 +65,10 @@ export const ContactForm = () => {
         </div>
 
         <div className="col-span-6 sm:col-span-3 lg:col-span-2">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-700"
+          >
             Email
           </label>
           <input
@@ -71,7 +81,10 @@ export const ContactForm = () => {
         </div>
 
         <div className="col-span-6 sm:col-span-3 lg:col-span-2">
-          <label htmlFor="imageUrl" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="imageUrl"
+            className="block text-sm font-medium text-gray-700"
+          >
             Image URL
           </label>
           <input
@@ -82,9 +95,13 @@ export const ContactForm = () => {
             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           />
         </div>
+
         <div className="col-span-6">
-          <label htmlFor="walletId" className="block text-sm font-medium text-gray-700">
-            Wallet Id
+          <label
+            htmlFor="walletId"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Wallet ID
           </label>
           <input
             type="text"
@@ -105,5 +122,5 @@ export const ContactForm = () => {
         </button>
       </div>
     </form>
-  )
-}
+  );
+};

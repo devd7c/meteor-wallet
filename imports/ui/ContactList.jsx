@@ -1,35 +1,45 @@
 import React, { memo } from "react";
-import {ContactsCollection} from "../api/ContactsCollection";
-import {useSubscribe, useFind } from 'meteor/react-meteor-data';
+import { ContactsCollection } from "../api/collections/ContactsCollection";
+import { useSubscribe, useFind } from "meteor/react-meteor-data";
+import { Loading } from "./components/Loading";
 
 export const ContactList = () => {
-  const isLoading = useSubscribe('contacts');
-  const contacts = useFind(() => ContactsCollection.find({ archived: {$ne: true} }, { sort: { createdAt: -1 }}));
+  const isLoading = useSubscribe("contacts");
+  const contacts = useFind(() =>
+    ContactsCollection.find(
+      { archived: { $ne: true } },
+      { sort: { createdAt: -1 } }
+    )
+  );
 
   const removeContact = (event, _id) => {
     event.preventDefault();
-    Meteor.call('contacts.archive', { contactId: _id });
-  }
-
-  const Loading = () => <div>
-    <div className="mt-10">
-      <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
-        Loading...
-      </h3>
-    </div>
-  </div>
+    Meteor.call("contacts.archive", { contactId: _id });
+  };
 
   const ContactItem = memo(({ contact }) => {
     return (
       <li className="py-4 flex items-center justify-between space-x-3">
         <div className="min-w-0 flex-1 flex items-center space-x-3">
-          <div className="flex-shrink-0">
-            <img className="h-10 w-10 rounded-full" src={contact.imageUrl} alt="" />
-          </div>
+          {contact.imageUrl && (
+            <div className="flex-shrink-0">
+              <img
+                className="h-10 w-10 rounded-full"
+                src={contact.imageUrl}
+                alt=""
+              />
+            </div>
+          )}
           <div className="min-w-0 flex-1">
-            <p className="text-sm font-medium text-gray-900 truncate">{contact.name}</p>
-            <p className="text-sm font-medium text-gray-500 truncate">{contact.email}</p>
-            <p className="text-sm font-medium text-gray-500 truncate">{contact.walletId}</p>
+            <p className="text-sm font-medium text-gray-900 truncate">
+              {contact.name}
+            </p>
+            <p className="text-sm font-medium text-gray-500 truncate">
+              {contact.email}
+            </p>
+            <p className="text-sm font-medium text-gray-500 truncate">
+              {contact.walletId}
+            </p>
           </div>
           <div>
             <a
@@ -42,7 +52,7 @@ export const ContactList = () => {
           </div>
         </div>
       </li>
-    )
+    );
   });
 
   if (isLoading()) {
@@ -54,12 +64,15 @@ export const ContactList = () => {
         <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
           Contact List
         </h3>
-        <ul role="list" className="mt-4 border-t border-b border-gray-200 divide-y divide-gray-200">
+        <ul
+          role="list"
+          className="mt-4 border-t border-b border-gray-200 divide-y divide-gray-200"
+        >
           {contacts.map((contact) => (
             <ContactItem key={contact._id} contact={contact} />
           ))}
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};
