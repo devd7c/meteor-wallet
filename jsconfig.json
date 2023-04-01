@@ -45,24 +45,25 @@
         "/home/ubuntu/.meteor/packages/hot-module-replacement/0.5.2/web.browser/server.js"
       ],
       "meteor/react-meteor-data": [
-        "/home/ubuntu/.meteor/packages/react-meteor-data/2.4.0/web.browser/index.js"
+        "/home/ubuntu/.meteor/packages/react-meteor-data/2.7.1/web.browser/index.js",
+        "/home/ubuntu/.meteor/packages/react-meteor-data/2.7.1/web.browser/suspense/index.js"
       ],
       "meteor/aldeed:collection2": [
         "/home/ubuntu/.meteor/packages/aldeed_collection2/3.5.0/web.browser/collection2.js",
         "/home/ubuntu/.meteor/packages/aldeed_collection2/3.5.0/web.browser/lib.js"
       ],
       "meteor/matb33:collection-hooks": [
-        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.1.2/web.browser/client.js",
-        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.1.2/web.browser/advices.js",
-        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.1.2/web.browser/collection-hooks.js",
-        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.1.2/web.browser/find.js",
-        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.1.2/web.browser/findone.js",
-        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.1.2/web.browser/insert.js",
-        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.1.2/web.browser/remove.js",
-        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.1.2/web.browser/server.js",
-        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.1.2/web.browser/update.js",
-        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.1.2/web.browser/upsert.js",
-        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.1.2/web.browser/users-compat.js"
+        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.2.2/web.browser/client.js",
+        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.2.2/web.browser/advices.js",
+        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.2.2/web.browser/collection-hooks.js",
+        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.2.2/web.browser/find.js",
+        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.2.2/web.browser/findone.js",
+        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.2.2/web.browser/insert.js",
+        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.2.2/web.browser/remove.js",
+        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.2.2/web.browser/server.js",
+        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.2.2/web.browser/update.js",
+        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.2.2/web.browser/upsert.js",
+        "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.2.2/web.browser/users-compat.js"
       ]
     }
   },
