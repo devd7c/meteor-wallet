@@ -64,6 +64,14 @@
         "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.2.2/web.browser/update.js",
         "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.2.2/web.browser/upsert.js",
         "/home/ubuntu/.meteor/packages/matb33_collection-hooks/1.2.2/web.browser/users-compat.js"
+      ],
+      "meteor/accounts-password": [
+        "/home/ubuntu/.meteor/packages/accounts-password/2.3.4/web.browser/password_client.js",
+        "/home/ubuntu/.meteor/packages/accounts-password/2.3.4/web.browser/email_templates.js",
+        "/home/ubuntu/.meteor/packages/accounts-password/2.3.4/web.browser/password_server.js"
+      ],
+      "meteor/quave:logged-user-react": [
+        "/home/ubuntu/.meteor/packages/quave_logged-user-react/1.0.0/web.browser/logged-user-react.js"
       ]
     }
   },

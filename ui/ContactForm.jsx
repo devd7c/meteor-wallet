@@ -1,43 +1,45 @@
-import React from "react";
-import { Meteor } from "meteor/meteor";
-import { ErrorAlert } from "./components/ErrorAlert";
-import { SuccessAlert } from "./components/SuccessAlert";
+import React from 'react';
+import { Meteor } from 'meteor/meteor';
+// eslint-disable-next-line import/no-unresolved
+import { ErrorAlert } from './components/ErrorAlert';
+// eslint-disable-next-line import/no-unresolved
+import { SuccessAlert } from './components/SuccessAlert';
 
 export const ContactForm = () => {
-  const [name, setName] = React.useState(""); // Formik
-  const [email, setEmail] = React.useState("");
-  const [imageUrl, setImageUrl] = React.useState("");
-  const [walletId, setWalletId] = React.useState("");
-  const [error, setError] = React.useState("");
-  const [success, setSuccess] = React.useState("");
+  const [name, setName] = React.useState(''); // Formik
+  const [email, setEmail] = React.useState('');
+  const [imageUrl, setImageUrl] = React.useState('');
+  const [walletId, setWalletId] = React.useState('');
+  const [error, setError] = React.useState('');
+  const [success, setSuccess] = React.useState('');
 
   const showError = ({ message }) => {
     setError(message);
     setTimeout(() => {
-      setError("");
+      setError('');
     }, 5000);
   };
 
   const showSuccess = ({ message }) => {
     setSuccess(message);
     setTimeout(() => {
-      setSuccess("");
+      setSuccess('');
     }, 5000);
   };
 
   const saveContact = () => {
     Meteor.call(
-      "contacts.insert",
+      'contacts.insert',
       { name, email, imageUrl, walletId },
       (errorResponse) => {
         if (errorResponse) {
           showError({ message: errorResponse.error });
         } else {
-          setName("");
-          setEmail("");
-          setImageUrl("");
-          setWalletId("");
-          showSuccess({ message: "Contact saved." });
+          setName('');
+          setEmail('');
+          setImageUrl('');
+          setWalletId('');
+          showSuccess({ message: 'Contact saved.' });
         }
       }
     );
