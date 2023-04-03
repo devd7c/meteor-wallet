@@ -1,21 +1,44 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
+import { ServiceConfiguration } from 'meteor/service-configuration';
 // eslint-disable-next-line import/no-unresolved
-import { RoutePaths } from '../ui/RoutePaths';
 import { WalletsCollection } from '/api/collections/WalletsCollection';
 
-Accounts.emailTemplates.resetPassword.html = (user, url) =>
-`Hello, <br /><br /> ${user} Reset your password with this link: ${url}`;
-
-Accounts.urls.resetPassword = (token) => Meteor.absoluteUrl(`${RoutePaths.RESET_PASSWORD.substring(1)}/${token}`);
+const getEmailFromUser = (user) => {
+  if (user.services?.google) {
+    return user.services.google.email;
+  }
+  return user.emails[0].address;
+};
 
 Accounts.onCreateUser((options, user) => {
-    const customizedUser = { ...user };
-    WalletsCollection.insert({ userId: user._id, createdAt: new Date() });
-    customizedUser.email = user.emails[0].address;
-    return customizedUser;
-  });
-  Accounts.setDefaultPublishFields({
-    ...Accounts._defaultPublishFields.projection,
-    email: 1,
+  const customizedUser = { ...user };
+  WalletsCollection.insert({ userId: user._id, createdAt: new Date() });
+  customizedUser.email = getEmailFromUser(user);
+  return customizedUser;
+});
+
+Accounts.setDefaultPublishFields({
+  ...Accounts._defaultPublishFields.projection,
+  email: 1,
+});
+
+const settings = Meteor.settings || {};
+Meteor.startup(() => {
+  if (!settings.googleClientId || !settings.googleSecret) {
+    throw new Error('googleClientId and googleSecret are required.');
+  }
+  Accounts.config({ restrictCreationByEmailDomain: 'gmail.com' });
+  ServiceConfiguration.configurations.upsert(
+    {
+      service: 'google',
+    },
+    {
+      $set: {
+        service: 'google',
+        clientId: settings.googleClientId,
+        secret: settings.googleSecret,
+      },
+    }
+  );
 });
