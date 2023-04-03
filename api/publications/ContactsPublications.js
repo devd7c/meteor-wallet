@@ -1,19 +1,23 @@
-import { Meteor } from "meteor/meteor";
-import { ContactsCollection } from "../collections/ContactsCollection.js";
+import { Meteor } from 'meteor/meteor';
+import { ContactsCollection } from '../collections/ContactsCollection.js';
 
-Meteor.publish("allContacts", function publishAllContacts() {
+/* Meteor.publish('allContacts', function publishAllContacts() {
   return ContactsCollection.find();
-});
+}); */
 
-Meteor.publish("contacts", function publishContacts() {
+Meteor.publish('myContacts', function publishContacts() {
+  const { userId } = this;
+  if (!userId) {
+    throw new Meteor.Error('Access denied');
+  }
   const contacts = ContactsCollection.find(
-    { archived: { $ne: true } },
+    { userId, archived: { $ne: true } },
     {
       fields: {
         createdAt: false,
       },
     }
   );
-  //console.log(contacts);
+  // console.log(contacts);
   return contacts;
 });

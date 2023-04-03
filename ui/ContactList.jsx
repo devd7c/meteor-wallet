@@ -1,10 +1,11 @@
-import React, { memo } from "react";
-import { ContactsCollection } from "../api/collections/ContactsCollection";
-import { useSubscribe, useFind } from "meteor/react-meteor-data";
-import { Loading } from "./components/Loading";
+import React, { memo } from 'react';
+import { ContactsCollection } from '../api/collections/ContactsCollection';
+import { useSubscribe, useFind } from 'meteor/react-meteor-data';
+// eslint-disable-next-line import/no-unresolved
+import { Loading } from './components/Loading';
 
 export const ContactList = () => {
-  const isLoading = useSubscribe("contacts");
+  const isLoading = useSubscribe('myContacts');
   const contacts = useFind(() =>
     ContactsCollection.find(
       { archived: { $ne: true } },
@@ -14,7 +15,7 @@ export const ContactList = () => {
 
   const removeContact = (event, _id) => {
     event.preventDefault();
-    Meteor.call("contacts.archive", { contactId: _id });
+    Meteor.call('contacts.archive', { contactId: _id });
   };
 
   const ContactItem = memo(({ contact }) => {

@@ -9,10 +9,12 @@ import { ContactsCollection } from '../api/collections/ContactsCollection';
 import { WalletsCollection } from '../api/collections/WalletsCollection';
 // eslint-disable-next-line import/no-unresolved
 import { Loading } from './components/Loading';
+import { useLoggedUser } from 'meteor/quave:logged-user-react';
 
 export const Wallet = () => {
-  const isLoadingContacts = useSubscribe('contacts');
-  const isLoadingWallets = useSubscribe('wallets');
+  const { loggedUser } = useLoggedUser();
+  const isLoadingContacts = useSubscribe('myContacts');
+  const isLoadingWallets = useSubscribe('myWallet');
   const contacts = useFind(() =>
     ContactsCollection.find(
       { archived: { $ne: true } },
@@ -32,7 +34,7 @@ export const Wallet = () => {
       {
         isTransferring,
         sourceWalletId: wallet._id,
-        destinationWalletId: destinationWallet?.walletId || '',
+        destinationContactId: destinationWallet?._id || '',
         amount: Number(amount),
       },
       (errorResponse) => {
@@ -63,14 +65,17 @@ export const Wallet = () => {
       <div className="flex font-sans shadow-md my-10">
         <form className="flex-auto p-6">
           <div className="flex flex-wrap">
-            <div className="w-full flex-none text-sm font-medium text-gray-500">
-              Main account
+            <div className="mt-2 w-full flex-none text-sm font-medium text-gray-500">
+              Email:
             </div>
-            <div className="w-full flex-none text-sm font-medium text-gray-500 mt-2">
+            <h1 className="flex-auto text-lg font-semibold text-gray-700">
+              {loggedUser?.email}
+            </h1>
+            <div className="mt-2 w-full flex-none text-sm font-medium text-gray-500">
               Wallet ID:
             </div>
             <h1 className="flex-auto text-lg font-semibold text-gray-700">
-              {wallet._id}
+              {wallet?._id}
             </h1>
             <div className="text-2xl font-bold text-gray-700">{`${wallet.balance} ${wallet.currency}`}</div>
           </div>
