@@ -1,8 +1,7 @@
-import React from "react";
-import { CheckCircleIcon } from '@heroicons/react/solid'
+import React from 'react';
+import CheckCircleIcon from '@heroicons/react/24/solid/CheckCircleIcon';
 
-export const SuccessAlert = ({ message }) => {
-  return (
+export const SuccessAlert = ({ message }) => (
     <div className="rounded-md bg-green-50 p-4">
       <div className="flex">
         <div className="flex-shrink-0">
@@ -13,5 +12,4 @@ export const SuccessAlert = ({ message }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );

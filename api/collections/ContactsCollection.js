@@ -9,7 +9,7 @@ const ContactsSchema = new SimpleSchema({
   },
   email: {
     type: String,
-    regEx: SimpleSchema.RegEx.Email,
+    //regEx: SimpleSchema.RegEx.Email,
   },
   imageUrl: {
     type: String,

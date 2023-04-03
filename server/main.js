@@ -1,12 +1,12 @@
 import { Meteor } from "meteor/meteor";
-import "../imports/api/collections/ContactsCollection";
-import "../imports/api/collections/TransactionsCollection";
-import "../imports/api/collections/WalletsCollection";
-import "../imports/api/methods/ContactsMethods";
-import "../imports/api/methods/TransactionsMethods";
-import "../imports/api/publications/ContactsPublications";
-import "../imports/api/publications/WalletsPublications";
-import { WalletsCollection } from "../imports/api/collections/WalletsCollection";
+import "../api/collections/ContactsCollection";
+import "../api/collections/TransactionsCollection";
+import "../api/collections/WalletsCollection";
+import "../api/methods/ContactsMethods";
+import "../api/methods/TransactionsMethods";
+import "../api/publications/ContactsPublications";
+import "../api/publications/WalletsPublications";
+import { WalletsCollection } from "../api/collections/WalletsCollection";
 import "../infra/CustomError";
 
 Meteor.startup(() => {

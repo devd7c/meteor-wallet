@@ -1,9 +1,10 @@
-import React, { Fragment } from "react";
-import { Listbox, Transition } from "@headlessui/react";
-import { CheckIcon, SelectorIcon } from "@heroicons/react/solid";
+import React, { Fragment } from 'react';
+import { Listbox, Transition } from '@headlessui/react';
+import CheckIcon from '@heroicons/react/24/solid/CheckIcon';
+import ChevronUpDownIcon from '@heroicons/react/24/solid/ChevronUpDownIcon';
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 
 export const SelectContact = ({ title, contact, setContact, contacts }) => {
@@ -25,11 +26,11 @@ export const SelectContact = ({ title, contact, setContact, contacts }) => {
                   />
                 )}
                 <span className="ml-3 block truncate">
-                  {contact?.name || "Select a contact"}
+                  {contact?.name || 'Select a contact'}
                 </span>
               </span>
               <span className="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                <SelectorIcon
+                <ChevronUpDownIcon
                   className="h-5 w-5 text-gray-400"
                   aria-hidden="true"
                 />
@@ -47,16 +48,16 @@ export const SelectContact = ({ title, contact, setContact, contacts }) => {
                 {!contacts.length && (
                   <Listbox.Option
                     className={classNames(
-                      "text-gray-900",
-                      "cursor-default select-none relative py-2 pl-3 pr-9"
+                      'text-gray-900',
+                      'cursor-default select-none relative py-2 pl-3 pr-9'
                     )}
                     disabled={true}
                   >
                     <div className="flex items-center">
                       <span
                         className={classNames(
-                          "font-normal",
-                          "ml-3 block truncate"
+                          'font-normal',
+                          'ml-3 block truncate'
                         )}
                       >
                         No contacts found
@@ -70,8 +71,8 @@ export const SelectContact = ({ title, contact, setContact, contacts }) => {
                     key={contact._id}
                     className={({ active }) =>
                       classNames(
-                        active ? "text-white bg-indigo-600" : "text-gray-900",
-                        "cursor-default select-none relative py-2 pl-3 pr-9"
+                        active ? 'text-white bg-indigo-600' : 'text-gray-900',
+                        'cursor-default select-none relative py-2 pl-3 pr-9'
                       )
                     }
                     value={contact}
@@ -88,8 +89,8 @@ export const SelectContact = ({ title, contact, setContact, contacts }) => {
                           )}
                           <span
                             className={classNames(
-                              selected ? "font-semibold" : "font-normal",
-                              "ml-3 block truncate"
+                              selected ? 'font-semibold' : 'font-normal',
+                              'ml-3 block truncate'
                             )}
                           >
                             {contact.name}
@@ -99,8 +100,8 @@ export const SelectContact = ({ title, contact, setContact, contacts }) => {
                         {selected ? (
                           <span
                             className={classNames(
-                              active ? "text-white" : "text-indigo-600",
-                              "absolute inset-y-0 right-0 flex items-center pr-4"
+                              active ? 'text-white' : 'text-indigo-600',
+                              'absolute inset-y-0 right-0 flex items-center pr-4'
                             )}
                           >
                             <CheckIcon className="h-5 w-5" aria-hidden="true" />

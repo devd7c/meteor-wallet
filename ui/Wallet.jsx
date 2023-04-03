@@ -1,15 +1,15 @@
-import { Meteor } from "meteor/meteor";
-import React from "react";
-import { useSubscribe, useFind } from "meteor/react-meteor-data";
-import { Modal } from "./components/Modal";
-import { SelectContact } from "./components/SelectContact";
-import { ContactsCollection } from "../api/collections/ContactsCollection";
-import { WalletsCollection } from "../api/collections/WalletsCollection";
-import { Loading } from "./components/Loading";
+import { Meteor } from 'meteor/meteor';
+import React from 'react';
+import { useSubscribe, useFind } from 'meteor/react-meteor-data';
+import { Modal } from './components/Modal';
+import { SelectContact } from './components/SelectContact';
+import { ContactsCollection } from '../api/collections/ContactsCollection';
+import { WalletsCollection } from '../api/collections/WalletsCollection';
+import { Loading } from './components/Loading';
 
 export const Wallet = () => {
-  const isLoadingContacts = useSubscribe("contacts");
-  const isLoadingWallets = useSubscribe("wallets");
+  const isLoadingContacts = useSubscribe('contacts');
+  const isLoadingWallets = useSubscribe('wallets');
   const contacts = useFind(() =>
     ContactsCollection.find(
       { archived: { $ne: true } },
@@ -21,15 +21,15 @@ export const Wallet = () => {
   const [isTransferring, setIsTransferring] = React.useState(false);
   const [amount, setAmount] = React.useState(0);
   const [destinationWallet, setDestinationWallet] = React.useState({});
-  const [errorMessage, setErrorMessage] = React.useState("");
+  const [errorMessage, setErrorMessage] = React.useState('');
 
   const addTransaction = () => {
     Meteor.call(
-      "transactions.insert",
+      'transactions.insert',
       {
         isTransferring,
         sourceWalletId: wallet._id,
-        destinationWalletId: destinationWallet?.walletId || "",
+        destinationWalletId: destinationWallet?.walletId || '',
         amount: Number(amount),
       },
       (errorResponse) => {
@@ -45,7 +45,7 @@ export const Wallet = () => {
           setOpen(false);
           setDestinationWallet({});
           setAmount(0);
-          setErrorMessage("");
+          setErrorMessage('');
         }
       }
     );
@@ -78,7 +78,7 @@ export const Wallet = () => {
                 className="bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
                 onClick={() => {
                   setIsTransferring(false);
-                  setErrorMessage("");
+                  setErrorMessage('');
                   setOpen(true);
                 }}
               >
@@ -89,7 +89,7 @@ export const Wallet = () => {
                 className="bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
                 onClick={() => {
                   setIsTransferring(true);
-                  setErrorMessage("");
+                  setErrorMessage('');
                   setOpen(true);
                 }}
               >
@@ -105,8 +105,8 @@ export const Wallet = () => {
         setOpen={setOpen}
         title={
           isTransferring
-            ? "Transfer money to other wallet"
-            : "Add money to your wallet"
+            ? 'Transfer money to other wallet'
+            : 'Add money to your wallet'
         }
         body={
           <>
@@ -146,7 +146,7 @@ export const Wallet = () => {
             className="bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
             onClick={addTransaction}
           >
-            {isTransferring ? "Transfer" : "Add"}
+            {isTransferring ? 'Transfer' : 'Add'}
           </button>
         }
         errorMessage={errorMessage}
